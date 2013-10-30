@@ -42,7 +42,7 @@ var app = {
             $.mobile.pushStateEnabled = false;
         });
 
-        $('#take_photo').on('click', app.camera.getPicture);
+        $('#take_photo').on('vclick', app.camera.getPicture);
         app.receivedEvent('deviceready');
         
     },
@@ -53,21 +53,24 @@ var app = {
         var receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
     },
     
     camera: {
         getPicture: function() {
-            alert('ok');
-            navigator.camera.getPicture(app.camera.onSuccess, app.camera.onError);
+            console.log('Start Camera');
+            navigator.camera.getPicture(app.camera.onSuccess, app.camera.onError, {
+                quality: 80,
+                destinationType: Camera.DestinationType.DATA_URL
+            });
         },
         onError: function(message) {
-            alert('Failed: ' + message);
+            console.error('Failed: ' + message);
         },
         onSuccess: function(imageData) {
-            $('#img').attr('src') = 'data:image/jpeg;base64,' + imageData;
+            console.log(imageData);
+            $('#img').attr('src', 'data:image/jpeg;base64,' + imageData);
         }
     }
 };

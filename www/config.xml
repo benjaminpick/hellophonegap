@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="de.yellowtree.phonegap.hellophonegap" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>HelloPhonegap</name>
+    <description>
+	Test-App mit Phonegap gemacht
+    </description>
+    <author email="b.pick@yellowtree.de" href="http://www.yellowtree.de/">
+        Benjamin Pick
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+</widget>
